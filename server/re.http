@@ -1,0 +1,110 @@
+POST http://localhost:3010/author-api/author
+Content-Type: application/json
+
+{
+  "role": "author",
+  "firstName": "author1",
+  "lastName": "author1",
+  "email": "author1@mail.com",
+  "profileImg": "author img",
+  "isActive": true
+}
+
+###create user
+POST http://localhost:3010/user-api/user
+Content-Type: application/json
+
+{
+  "role": "user",
+  "firstName": "user1",
+  "lastName": "user1",
+  "email": "user1@gmail.com",
+  "profileImg": "user1 image",
+  "isActive": true
+}
+###post new article
+POST http://localhost:3010/author-api/article
+Content-Type: application/json
+
+{
+    "authorData":{
+        "nameOfAuthor":"author1",
+        "email":"author1@mail.com",
+        "profileimg":"author1 img"
+    },
+    "articleId":"{{$timestamp}}",
+    "title":"Fundamentals of JavaScript",
+    "category":"test",
+    "content":"JavaScript",
+    "dateofCreation":"{{$datetime iso8601}}",
+    "dateofModification":"{{$datetime iso8601}}",
+    "isArticleActive":true,
+    "comments":[]
+   
+}
+###
+
+GET http://localhost:3010/author-api/articles
+
+###
+PUT http://localhost:3010/author-api/article/1738341761
+Content-Type: application/json
+
+{   "_id":"679cfd8193f67bbe676619cf",
+    "authorData":{
+        "nameOfAuthor":"author1",
+        "email":"author1@mail.com",
+        "profileimg":"author1 img"
+    },
+    "articleId":"{{$timestamp}}",
+    "title":"Fundamentals of JS",
+    "category":"test",
+    "content":"JavaScript",
+    "dateofModification":"{{$datetime iso8601}}",
+    "isArticleActive":true,
+    "comments":[]
+   
+}
+#### deleting article
+PUT http://localhost:3010/author-api/articles/1738341761
+Content-Type: application/json
+
+{   "_id":"679cfd8193f67bbe676619cf",
+    "authorData":{
+        "nameOfAuthor":"author1",
+        "email":"author1@mail.com",
+        "profileimg":"author1 img"
+    },
+    "articleId":"{{$timestamp}}",
+    "title":"Fundamentals of JS",
+    "category":"test",
+    "content":"JavaScript",
+    "dateofModification":"{{$datetime iso8601}}",
+    "dateofModification":"{{$datetime iso8601}}",
+    "isArticleActive":false,
+    "comments":[]
+   
+}
+###
+PUT http://localhost:3010/user-api/comment/1738437415
+Content-Type: application/json
+
+{
+  "nameofUser":"user1",
+  "comment":"loved it"
+}
+
+####
+POST http://localhost:3010/admin-api/admin
+Content-Type: application/json
+
+{
+  "role": "admin",
+  "firstName": "user1",
+  "lastName": "user1",
+  "email": "user1@gmail.com",
+  "profileImg": "user1 image",
+  "isActive": true
+}
+####
+GET http://localhost:3010/admin-api/
