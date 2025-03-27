@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { Useauth } from "../../context/UserAuthorCon";
-import { useEffect} from "react"
+import { useEffect,useContext} from "react"
 import { motion } from "framer-motion";
 
 function AuthorProfile() {
